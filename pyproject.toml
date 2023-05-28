@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "python-template"
+version = "0.0.1"
+description = "Template project to use as base for my python projects"
+authors = ["Ítalo Da Silva Vieira <italo.vieira.dev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.taskipy.tasks]
+start = 'python src/main.py'
+test = 'pytest'
+analyze = 'bandit -r src'
+format = 'black src'
+lint = "pylint src"
+export = "poetry export -f requirements.txt --output requirements.txt"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.11.0"
+pylint = "^2.17.4"
+black = "^23.3.0"
+pre-commit = "^3.3.2"
+pytest = "^7.3.1"
+python-dotenv = "^1.0.0"
+bandit = "^1.7.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
