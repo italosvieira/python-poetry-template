@@ -1,1 +1,1 @@
-# python-template
+# Template project using Python and Poetry
